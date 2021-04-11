@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title></title>
+      <link href="2021/04/09/java/"/>
+      <url>2021/04/09/java/</url>
+      
+        <content type="html"><![CDATA[<div style="color:blue;font-size:40px"align=center>Java常用单词</div><pre style="color:red;font-size:25px" txt-align=center>Throwable  可抛出的try 尝试　Exception 例外情况 可解决的报错方式 　final 最终的 可修饰类 方法 变量 修饰过后的元素无法被更改　Design 设计　abstract 抽象missmatch 不匹配的　static 静态　default 默认　extends 继承　implements 执行　import 输入　instanceof 关键字类型比较　interface 接口　native 本地的synchronized 同步throw 抛出transient 临时的volatile 不稳定的value 值@Override 重写charAt--判断字符串的下标concat--拼接,但不改变原串endsWith--判断是否以指定元素结尾startsWith--判断是否以指定元素开头equals--判断串的内容是否一致indexOf--判断字符第一次出现的位置LastindexOf--判断字符最后一次出现的位置length--长度toUpperCase--变大写toLowerCase--变小写trim--去掉收尾空格split--通过指定元素分隔valueOf--int10转String10getBytes--转成byte[]subString --截取子串,如果参数有两个,左闭右开[1,5)    add 加subtract 减multiply 乘divide 除</pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Java基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
