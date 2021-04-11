@@ -6,7 +6,7 @@
   <link href="https://hanjunjidaxian.github.io/atom.xml" rel="self"/>
   
   <link href="https://hanjunjidaxian.github.io/"/>
-  <updated>2021-04-11T08:40:01.750Z</updated>
+  <updated>2021-04-11T08:40:55.352Z</updated>
   <id>https://hanjunjidaxian.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hanjunjidaxian.github.io/2021/04/09/java/"/>
     <id>https://hanjunjidaxian.github.io/2021/04/09/java/</id>
     <published>2021-04-09T05:59:00.000Z</published>
-    <updated>2021-04-11T08:40:01.750Z</updated>
+    <updated>2021-04-11T08:40:55.352Z</updated>
     
     
       
@@ -37,8 +37,10 @@ Throwable </summary>
     
     
     
+    <category term="Java" scheme="https://hanjunjidaxian.github.io/categories/Java/"/>
     
-    <category term="Java基础" scheme="https://hanjunjidaxian.github.io/tags/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="Java基础单词" scheme="https://hanjunjidaxian.github.io/tags/Java%E5%9F%BA%E7%A1%80%E5%8D%95%E8%AF%8D/"/>
     
   </entry>
   
