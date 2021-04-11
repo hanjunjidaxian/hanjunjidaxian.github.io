@@ -33,16 +33,161 @@
 </head>
 
 
+ 
+    <style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
 
 
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },2500); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+</script>
+
+ 
 <body>
+    
+        <div id="loading-container">
+             <p class="loading-text">嘘~  正在从服务器偷取页面 . . . </p> 
+             <div class="loading-image">
+                 <div></div>
+                 <div></div>
+                 <div></div>
+                 <div></div> 
+                 <div></div>
+             </div>
+        </div>
+    
+
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/images/loading.gif# eg" data-original="/medias/loading1.gif" class="logo-img" alt="LOGO">
+                    <img src="/medias/loading1.gif" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">美好的一天</span>
                 </a>
@@ -109,64 +254,23 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/friends" class="waves-effect waves-light">
+    <a href="/contact" class="waves-effect waves-light">
       
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
-      <span>友情链接</span>
+      <span>留言板</span>
     </a>
     
   </li>
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="" class="waves-effect waves-light">
-
+    <a href="/friends" class="waves-effect waves-light">
       
-      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
-      <span>媒体</span>
-      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+      <span>友情链接</span>
     </a>
-    <ul class="sub-nav menus_item_child ">
-      
-      <li>
-        <a href="/music">
-          
-          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
-          
-          <span>音乐</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/movies">
-          
-          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
-          
-          <span>电影</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/books">
-          
-          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
-          
-          <span>书籍</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/galleries">
-          
-          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
-          
-          <span>照片</span>
-        </a>
-      </li>
-      
-    </ul>
     
   </li>
   
@@ -182,7 +286,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/images/loading.gif# eg" data-original="/medias/loading1.gif" class="logo-img circle responsive-img">
+        <img src="/medias/loading1.gif" class="logo-img circle responsive-img">
         
         <div class="logo-name">美好的一天</div>
         <div class="logo-desc">
@@ -253,67 +357,23 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/friends" class="waves-effect waves-light">
+		<a href="/contact" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-address-book"></i>
+			    <i class="fa-fw fas fa-comments"></i>
 			
-			友情链接
+			留言板
 		</a>
           
         </li>
         
         <li class="m-nav-item">
 	  
-		<a href="javascript:;">
+		<a href="/friends" class="waves-effect waves-light">
 			
-				<i class="fa-fw fas fa-list"></i>
+			    <i class="fa-fw fas fa-address-book"></i>
 			
-			媒体
-			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+			友情链接
 		</a>
-            <ul  style="background:  ;" >
-              
-                <li>
-
-                  <a href="/music " style="margin-left:75px">
-				  
-				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
-			      
-		          <span>音乐</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/movies " style="margin-left:75px">
-				  
-				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
-			      
-		          <span>电影</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/books " style="margin-left:75px">
-				  
-				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
-			      
-		          <span>书籍</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/galleries " style="margin-left:75px">
-				  
-				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
-			      
-		          <span>照片</span>
-                  </a>
-                </li>
-              
-            </ul>
           
         </li>
         
@@ -392,7 +452,7 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
+	<div class="bg-cover pd-header about-cover">
     <div class="container">
     <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
@@ -403,13 +463,17 @@
                 
             </div>
 
-            <div class="description center-align">
+          <div class="description center-align">
                 
                 <span id="subtitle"></span>
                 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
                 <script>
                     var typed = new Typed("#subtitle", {
-                        strings: ['从来没有真正的绝境, 只有心灵的迷途','Never really desperate, only the lost of the soul'],
+                        strings: ['从来没有真正的绝境, 只有心灵的迷途',
+	 '如果放弃太早，你永远都不知道自己会错过什么。',
+	'没有伞的孩子必须努力奔跑！',
+	'花开不是为了花落，而是为了开的更加灿烂。',
+	 '没有礁石，就没有美丽的浪花；没有挫折，就没有壮丽的人生。' ],
                         startDelay: 300,
                         typeSpeed: 100,
                         loop: true,
@@ -419,6 +483,7 @@
                 </script>
                 
             </div>
+
         </div>
     </div>
 </div>
@@ -448,11 +513,11 @@
                 
                 
                 
-                <a href="/categories/Java/" title="Java: 1">
+                <a href="/categories/Java/" title="Java: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             style="background-color: #F9EBEA;">Java
-                        <span class="tag-length">1</span>
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
@@ -470,10 +535,55 @@
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2021/04/11/bug/">
+                        <div class="card-image tag-image">
+                            
+                            <img src="http://wwwfirst.top/images/2021/04/11/u3905133877648343572fm15gp0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Bug汇总
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Bug/">
+                            <span class="chip bg-color">Bug</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2021/04/09/java/">
                         <div class="card-image tag-image">
                             
-                            <img src="/images/loading.gif# eg" data-original="http://wwwfirst.top/images/2021/04/11/u40654891162631119901fm26gp0.jpg" class="responsive-img" alt="">
+                            <img src="http://wwwfirst.top/images/2021/04/11/u40654891162631119901fm26gp0.jpg" class="responsive-img" alt="">
                             
                             <span class="card-title"></span>
                         </div>
@@ -530,60 +640,6 @@ m
 
 
     <footer class="page-footer bg-color">
-    
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
     
     <div class="container row center-align" style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
@@ -696,12 +752,21 @@ m
         <i class="fas fa-rss"></i>
     </a>
 
+
+
+
+
+
+
+
+
+
+
 </div>
     </div>
 </footer>
 
 <div class="progress-bar"></div>
-
 
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
@@ -821,6 +886,7 @@ $(function () {
     <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
+    <script src="/"></script>
 
     <!-- Baidu Analytics -->
 
@@ -839,6 +905,9 @@ $(function () {
         s.parentNode.insertBefore(bp, s);
     })();
 </script>
+
+
+
 
     
     <script src="/libs/others/clicklove.js" async="async"></script>
@@ -882,6 +951,7 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
+
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":250,"height":500,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":1},"log":false});</script><script>
             window.imageLazyLoadSetting = {
