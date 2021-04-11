@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>美好的一天</title>
   
-  
+  <subtitle>长路漫漫</subtitle>
   <link href="https://hanjunjidaxian.github.io/atom.xml" rel="self"/>
   
   <link href="https://hanjunjidaxian.github.io/"/>
-  <updated>2021-04-11T08:40:55.352Z</updated>
+  <updated>2021-04-11T12:56:19.892Z</updated>
   <id>https://hanjunjidaxian.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://hanjunjidaxian.github.io/2021/04/11/bug/"/>
+    <id>https://hanjunjidaxian.github.io/2021/04/11/bug/</id>
+    <published>2021-04-11T10:24:00.000Z</published>
+    <updated>2021-04-11T12:56:19.892Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre class=&quot;line-numbers language-Bug&quot; data-language=&quot;Bug&quot;&gt;&lt;code class=&quot;language-Bug&quot;&gt;Bug1 收录时间 2021.3.18
+报错内容:
+Exception in thread</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Bug" scheme="https://hanjunjidaxian.github.io/tags/Bug/"/>
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -28,9 +53,9 @@
       
         
         
-    <summary type="html">&lt;div style=&quot;color:blue;font-size:40px&quot;align=center&gt;Java常用单词&lt;/div&gt;
+    <summary type="html">&lt;div style=&quot;color:blue;font-size:40px&quot; align=&quot;center&quot;&gt;Java常用单词&lt;/div&gt;
 
-&lt;pre style=&quot;color:red;font-size:25px&quot; txt-align=center&gt;
+&lt;pre style=&quot;color:red;font-size:25px&quot; txt-align=&quot;center&quot;&gt;
 Throwable </summary>
         
       
