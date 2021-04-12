@@ -47,7 +47,6 @@ h1 {
     font-size: 2.0rem;
     font-weight: bold;
     line-height: 2.0rem;
-   color: #fff000;
 }
 
 h2 {
@@ -55,7 +54,6 @@ h2 {
     font-size: 1.8rem;
     font-weight: bold;
     line-height: 1.8rem;
-color: #fff000;
 }
 
 h3 {
@@ -63,7 +61,6 @@ h3 {
     font-size: 1.6rem;
     font-weight: bold;
     line-height: 1.7rem;
-color: #fff000;
 }
 
 h4 {
@@ -71,7 +68,6 @@ h4 {
     font-size: 1.45rem;
     font-weight: bold;
     line-height: 1.45rem;
-color: #fff000;
 }
 
 h5 {
@@ -79,20 +75,17 @@ h5 {
     font-size: 1.2rem;
     font-weight: bold;
     line-height: 1.2rem;
-color: #fff000;
 }
 
 h6 {
     margin: 22px 0 4px -4px;
     font-size: 1.1rem;
     line-height: 1.1rem;
-color: #fff000;
 }
 
 p {
     font-size: 1rem;
     line-height: 1.5rem;
-color: #fff000;
 }
 
 hr {
@@ -275,7 +268,6 @@ mark {
 
 .pd-header {
     margin-top: -64px;
-color:#fff000;
 }
 
 header .side-nav {
@@ -311,6 +303,7 @@ header .brand-logo .logo-span {
 /*修改顶部 logo 的文字垂直对齐为 top，避免默认 middle 看起来偏下*/
 header .brand-logo .waves-effect {
     vertical-align: top;
+    color:#fff;
 }
 
 header .button-collapse i {
@@ -1766,7 +1759,7 @@ footer .social-statis {
 }
 
 footer a {
-   color: #fff;
+    color: #fff;
 }
 
 footer .copy-right {
@@ -2064,9 +2057,4 @@ footer .copy-right {
     height: 50px;
     padding: 0;
     margin: 0;
-}
-
-
-heeder a {
-   color: #fff000;
 }
