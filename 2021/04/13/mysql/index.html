@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="galleries, 美好的一天">
+    <meta name="keywords" content="MySQL, 美好的一天">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>galleries | 美好的一天</title>
+    <title>MySQL | 美好的一天</title>
     <link rel="icon" type="image/png" href="/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -414,12 +414,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">galleries</h1>
+                    <h1 class="description center-align post-title">MySQL</h1>
                 </div>
             </div>
         </div>
@@ -533,9 +533,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/MYSQL/">
+                                <span class="chip bg-color">MYSQL</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -547,21 +551,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-10
+                    2021-04-13
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-10
+                    2021-04-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    285
                 </div>
                 
 
@@ -591,7 +595,43 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h3 id="创建、删除、查看数据库"><a href="#创建、删除、查看数据库" class="headerlink" title="创建、删除、查看数据库"></a>创建、删除、查看数据库</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">database</span><span class="token punctuation">;</span> <span class="token comment">--查看当前数据库服务器中的所有库</span>
+<span class="token keyword">create</span> <span class="token keyword">database</span> my_db1<span class="token punctuation">;</span> <span class="token comment">-- 创建mydb1库</span>
+针对多个单词不要使用驼峰命名，而是使用下划线连接<span class="token punctuation">,</span>可以使用my_db1
+<span class="token keyword">show</span> <span class="token keyword">databases</span><span class="token punctuation">;</span> <span class="token comment">--查看所有库</span>
+<span class="token keyword">use</span> my_db1<span class="token punctuation">;</span> <span class="token comment">--进入my_db1库</span>
+<span class="token keyword">show</span> <span class="token keyword">tables</span><span class="token punctuation">;</span> <span class="token comment">--展示当前库中所有表</span>
+<span class="token keyword">drop</span> <span class="token keyword">database</span> my_db1<span class="token punctuation">;</span> <span class="token comment">--删除my_db1库</span>
+如果库不存在会报错
+<span class="token keyword">drop</span> <span class="token keyword">database</span> <span class="token keyword">if</span> <span class="token keyword">exists</span> my_db1<span class="token punctuation">;</span>
+如果存在my_db1库就删除<span class="token punctuation">,</span>此语句解决了上条报错
+<span class="token keyword">create</span> <span class="token keyword">database</span> my_db1 <span class="token keyword">charset</span> utf8<span class="token punctuation">;</span>
+创建一个编码为utf8类型的库名为my_db1的库
+<span class="token keyword">create</span> <span class="token keyword">database</span> <span class="token keyword">if</span> <span class="token operator">not</span> <span class="token keyword">exists</span> my_db1 <span class="token keyword">charset</span> utf8<span class="token punctuation">;</span>
+如果my_db1不存在<span class="token punctuation">,</span>创建一个编码为utf8类型的库名为my_db1的库
+<span class="token keyword">show</span> creata <span class="token keyword">database</span> my_db1<span class="token punctuation">;</span>
+查看指定库名my_db1使用的编码类型<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="创建、删除、查看表"><a href="#创建、删除、查看表" class="headerlink" title="创建、删除、查看表"></a>创建、删除、查看表</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">use</span> my_db1<span class="token punctuation">;</span>
+选择数据库为my_db1<span class="token punctuation">;</span>
+<span class="token keyword">drop</span> <span class="token keyword">table</span> <span class="token keyword">if</span> <span class="token keyword">exists</span> stu<span class="token punctuation">;</span>
+如果存在名称为stu的表 删除此表
+<span class="token keyword">create</span> <span class="token keyword">table</span> 表名<span class="token punctuation">(</span>
+	列名 数据类型
+   列名 数据类型
+   <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">)</span>
+
+示例:
+<span class="token keyword">create</span> <span class="token keyword">table</span> stu<span class="token punctuation">(</span>
+	id <span class="token keyword">int</span><span class="token punctuation">,</span>
+   name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">--name表示这一列,最多能存放50个字符</span>
+	gender <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+   birthday <span class="token keyword">date</span><span class="token punctuation">,</span>
+   score <span class="token keyword">double</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">desc</span> stu<span class="token punctuation">;</span><span class="token comment">--查看stu表结构</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="/images/loading.gif# eg" data-original="/2021/04/13/mysql/image-20201030000618981.png" alt="#stu"></p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -617,7 +657,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hanjunjidaxian.github.io/galleries/index.html">https://hanjunjidaxian.github.io/galleries/index.html</a>
+                    <a href="https://hanjunjidaxian.github.io/2021/04/13/mysql/">https://hanjunjidaxian.github.io/2021/04/13/mysql/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -654,7 +694,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/MYSQL/">
+                                    <span class="chip bg-color">MYSQL</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -873,24 +917,24 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/galleries/index.html">
+                <a href="/2021/04/13/mysql/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="galleries">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MySQL">
                         
-                        <span class="card-title">galleries</span>
+                        <span class="card-title">MySQL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            我显示的是文章摘要
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-13
                             </span>
                         <span class="publish-author">
                             
@@ -902,43 +946,61 @@
                 </div>
 
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MYSQL/">
+                        <span class="chip bg-color">MYSQL</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/galleries/index.html">
+                <a href="/2021/04/11/bug/">
                     <div class="card-image">
                         
+                        <img src="https://www.cdnjson.com/images/2021/04/13/32911446a8d8c0c7b6ee4b9eb43f3da.jpg" class="responsive-img" alt="Bug">
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="galleries">
-                        
-                        <span class="card-title">galleries</span>
+                        <span class="card-title">Bug</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            Bug汇总
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-11
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            韩俊吉
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Bug/">
+                        <span class="chip bg-color">Bug</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
